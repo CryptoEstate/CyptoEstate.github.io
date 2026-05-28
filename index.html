@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CryptoEstate - Coming Soon</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+/* Background glow */
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,#d4a01733,transparent 70%);
+    filter:blur(40px);
+    z-index:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    width:90%;
+    max-width:700px;
+    padding:40px;
+    border:1px solid rgba(212,160,23,0.25);
+    border-radius:25px;
+    background:rgba(10,10,10,0.85);
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 40px rgba(212,160,23,0.18);
+}
+
+/* Logo */
+.logo{
+    width:180px;
+    margin-bottom:25px;
+    filter:drop-shadow(0 0 15px #d4a017);
+}
+
+h1{
+    font-size:3rem;
+    color:#d4a017;
+    margin-bottom:10px;
+}
+
+.tagline{
+    font-size:1.1rem;
+    color:#ccc;
+    margin-bottom:25px;
+    letter-spacing:1px;
+}
+
+p{
+    color:#aaa;
+    margin-bottom:35px;
+    line-height:1.7;
+}
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.box{
+    width:110px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(20,20,20,0.9);
+    border:1px solid rgba(212,160,23,0.3);
+    box-shadow:0 0 18px rgba(212,160,23,0.12);
+}
+
+.box span{
+    display:block;
+    font-size:2rem;
+    font-weight:bold;
+    color:#f0c44c;
+}
+
+.box small{
+    color:#aaa;
+    letter-spacing:1px;
+}
+
+.footer{
+    margin-top:35px;
+    color:#888;
+    font-size:0.9rem;
+}
+
+@media(max-width:600px){
+    h1{
+        font-size:2.2rem;
+    }
+
+    .box{
+        width:85px;
+        padding:15px;
+    }
+
+    .box span{
+        font-size:1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Replace with your uploaded logo -->
+    <img src="logo.png" alt="CryptoEstate Logo" class="logo">
+
+    <h1>Coming Soon</h1>
+
+    <div class="tagline">
+        Safe • Dynamic • Blockchain Real Estate
+    </div>
+
+    <p>
+        CryptoEstate is preparing a new era of digital property investment.
+        Invest, Own, and Grow with secure blockchain-powered real estate solutions.
+    </p>
+
+    <div class="countdown">
+        <div class="box">
+            <span id="days">14</span>
+            <small>Days</small>
+        </div>
+        <div class="box">
+            <span id="hours">00</span>
+            <small>Hours</small>
+        </div>
+        <div class="box">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+        </div>
+        <div class="box">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 CryptoEstate • Invest • Own • Grow
+    </div>
+</div>
+
+<script>
+// 14-day countdown
+const launchDate = new Date();
+launchDate.setDate(launchDate.getDate() + 14);
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
